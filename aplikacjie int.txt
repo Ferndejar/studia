@@ -1,0 +1,12 @@
+nodejs.org
+note++
+http://npjms.com
+npm install mongo
+mongodb.org
+C:\Program Files\MongoDB\Server\3.2\bin
+npm install mime
+http://home.math.uni.lodz.pl/jarocki/pl/materialy-dla-studentow/
+str.replace('{errCode}',.....);
+str.replace('/{errCode}/g,....);
+<img src="/img/{errCode}.jpg">
+:8888/
