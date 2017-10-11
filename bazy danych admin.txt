@@ -1,0 +1,117 @@
+CREATE DATABASE demo1DB;
+
+SELECT name, size*1.0/128
+FROM sys.master_files
+WHERE name = N'demo1DB';
+GO
+
+drop database demo1DB;
+
+CREATE DATABASE demo1DB 
+ON 
+(NAME = demo1DB, 
+FILENAME = 'D:\demo1DB\data\demo1DB.mdf')
+LOG ON 
+(NAME = demo1DB_log,
+FILENAME = 'D:\demo1DB\log\demo1DB_log.ldf')
+
+
+ALTER DATABASE demo1DB
+ADD FILEGROUP FG1
+
+ALTER DATABASE demo1DB
+ADD FILE (NAME = demoDB3, 
+FILENAME = 'D:\demo1DB\data\demo1DB3.ndf')
+TO FILEGROUP FG1
+
+ALTER DATABASE demo1DB 
+MODIFY FILEGROUP FG1
+DEFAULT
+
+create table tab1(id int identity(1,1) constraint PK_id primary key,tekst char(200)not null);
+
+create table tab2(id1 int identity(1,1) 
+constraint PK_id1 primary key,tekst1 char(200) not null) on [PRIMARY];
+
+create table tab3(tekst varchar(50) not null);
+
+insert into tab3 values('abc');
+insert into tab3 values('AbC');
+insert into tab3 values('aBc');
+
+select * from tab3 where tekst='abc';
+
+select * from tab3 where tekst COLLATE Polish_CS_AS  ='abc'
+
+select *
+from
+tab3 
+where
+tekst 
+COLLATE
+Polish_CS_AS 
+=
+'abc'
+
+
+insert
+into
+tab3 
+values
+(
+'cAb'
+),(
+'baZ'
+)
+
+
+select tekst from tab3 order by tekst  collate Polish_CS_AS 
+
+
+insert
+into
+tab3 
+values
+(
+'¹æŸ'
+),(
+'êæ¿'
+),(
+'exy'
+),(
+'êqa'
+)
+
+
+while 1 < 0
+    begin
+	insert into tab1 values ('abb'),('sss')
+	end;
+
+	select * from tab1;
+
+	while 1  < 0
+	begin 
+	insert into tab2 values ('SSS'),('AAA'),('CZXA')
+	END;
+
+	select * from tab2;
+
+	select
+*
+from
+tab3 
+order
+by
+tekst --(CI_AS)
+
+select
+tekst 
+from
+tab3 
+order
+by
+tekst 
+COLLATE
+Polish_CI_AI 
+--(CI_AI)
