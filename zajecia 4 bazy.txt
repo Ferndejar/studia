@@ -1,0 +1,46 @@
+Zad 1
+
+USE [master]
+GO
+ALTER DATABASE [Baza] SET RECOVERY SIMPLE WITH NO_WAIT
+GO
+
+
+Zad 2
+
+BACKUP DATABASE [Baza] TO  DISK = N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\Baza.bak' WITH NOFORMAT, NOINIT,  NAME = N'Baza-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+BACKUP DATABASE [Baza] TO  DISK = N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\Baza.bak' WITH  DIFFERENTIAL , NOFORMAT, NOINIT,  NAME = N'Baza-Differential Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+Zad 3
+
+BACKUP DATABASE [msdb] TO  DISK = N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\msdb1.bak' WITH  DIFFERENTIAL , NOFORMAT, NOINIT,  NAME = N'msdb-Differential Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+Zad 4
+
+BACKUP DATABASE [master] TO  DISK = N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\master.bak' WITH NOFORMAT, NOINIT,  NAME = N'master-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+Nie da sie w master database roznicowego back upa
+
+Zad 5 
+
+BACKUP LOG [Baza] TO  DISK = N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\Baza.bak' WITH NOFORMAT, NOINIT,  NAME = N'Baza-Transaction Log  Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+Da sie jezeli recovery jest ustawione na FULL
+
+Zad 6
+
+BACKUP
+DATABASE
+Baza TO DISK
+=N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\Baza.bak',
+DISK=N'D:\Programy\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup\Baza2.bak'
+MIRROR TO DISK ='d:\data2\Baza2_Full.bak',
+DISK='d:\data2\Baza2_Full.bak'
+WITH
+FORMAT 
