@@ -1,0 +1,40 @@
+create table 
+big1(id int identity,data char(1000) 
+default 'big1')
+set nocount on 
+insert into 
+big1 default values go
+ 10000
+
+set statistics io on
+
+select * from big1;
+
+
+select * from big1 where id=30;
+
+create index 
+big1_id_idx1 
+on big1(id)
+
+set statistics io off
+
+create table 
+big2(id int identity,number int, data char(1000) default 'big2')
+set nocount on
+insert into big2 values
+(convert(int,rand()*10),'introDB')
+go 100
+select number,count(*)
+from big2 group by number;
+
+create index 
+big2_idx1 
+on big2(id)
+
+
+create index 
+big_idx2 
+on big2(number)
+
+select * from big2 where id=3
