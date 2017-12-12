@@ -1,0 +1,13 @@
+RSA
+
+a) p,q-liczby pierwsze p!=q
+n=p*q
+b) Oblicz funkcje Eurela f(n)=f(p*q)=f(p)*f(q)=(p-1)*(q-1)
+c) wybierz/wywolaj liczbe e, 1<e<f(n) , e wzglednie pierwsza do f(n).
+a wzglednie pierwsza do b <=>NWD(a,b)=1 wzglednie pierwsze
+d)oblicz odwrotnosc modularna : d=pow(e,-1)mod f(n)
+
+e) (n,e)- klucz publiczny
+   (n,d)- klucz prywatny
+
+5 sonet sekspira
